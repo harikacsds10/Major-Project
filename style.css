@@ -1,0 +1,120 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0E1428; /* Soft grayish blue */
+    margin: 0;
+    padding: 0;
+    color: #F4E8C1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #0E1428; /* Light pastel blue */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+}
+
+h1 {
+    color: #F4E8C1; /* Dark gray */
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Exo 2', sans-serif; /* Apply Exo 2 font to headings */
+    font-weight: 500;
+    font-size: 4rem; /* Medium 500 weight */
+}
+
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+}
+
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+textarea,
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da; /* Light gray */
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #007bff; /* Blue */
+    color: #ffffff; /* White */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Result Page Styles */
+.result {
+    margin-top: 30px;
+}
+
+.result p {
+    margin-bottom: 10px;
+}
+
+.result p strong {
+    color: #343a40; /* Dark gray */
+}
+
+.result ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.result li {
+    margin-bottom: 5px;
+}
+
+/* Button Styles */
+.btn-start {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: 'Dosis', sans-serif;
+    text-decoration: none;
+    color: #F4E8C1; /* Dark gray */
+    background-color: #394467;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(136, 143, 169, 0.3); /* Updated drop shadow with larger range */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+/* Add hover effect */
+.btn-start:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(136, 143, 169, 0.5); /* Increased shadow range on hover */
+}
+
+/* Visualization Box Styles */
+.visualization-box {
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+    margin-top: 30px;
+    
+        
+}
