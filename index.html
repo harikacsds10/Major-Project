@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Link to Google Fonts for Dosis and Exo 2 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Exo+2:wght@500&display=swap">
+</head>
+<body>
+    <div class="container">
+        <!-- Apply Exo 2 font to the heading -->
+        <h1 style="font-family: 'Exo 2', sans-serif; font-weight: 500;">Sentiment Analysis</h1>
+        <form action="/analyze" method="post">
+            <label for="input_text" style="font-weight: normal;">Enter the text to analyze sentiment:</label><br>
+            <textarea id="input_text" name="input_text" rows="4" cols="50" style="font-family: 'Dosis', sans-serif;font-size: 16px; width: 90%;" placeholder="Enter your text here..."></textarea><br>
+            <label for="candidate_labels" style="font-weight: normal;">Enter candidate labels separated by commas:</label><br>
+            <input type="text" id="candidate_labels" name="candidate_labels" style="font-family: 'Dosis', sans-serif;font-size: 16px; width: 90%;" placeholder="e.g., favour, against, none"><br><br>
+            <!-- Style the "Submit" button as a clickable button with smaller padding and font size -->
+            <button type="submit" class="btn-start" style="padding: px 16px; font-size: 16px;">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

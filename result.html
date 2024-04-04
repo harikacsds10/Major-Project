@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Link to Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Link to Google Fonts for Dosis and Exo 2 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Exo+2:wght@500&display=swap">
+</head>
+<body>
+    <div class="container">
+        <h1 style="font-family: 'Exo 2', sans-serif; font-weight: 500;">Sentiment Analysis Result</h1>
+        <div class="result">
+            <p style="font-family: 'Dosis', sans-serif; color: #ffffff; font-size: 22px;"><strong style="color: #F4E8C1; font-size: 22px;">Input Text:</strong> {{ input_text }}</p>
+            <p style="font-family: 'Dosis', sans-serif; color: #ffffff; font-size: 22px;"><strong style="color: #F4E8C1; font-size: 22px;">Sentiment:</strong> {{ highest_confidence_label }}</p>
+        </div>
+
+        <!-- Visualization of confidence scores -->
+        <div class="visualization-box">
+            <h2 style="font-family: 'Dosis', sans-serif;color: #0E1428;">Visualizations of the Confidence Levels</h2>
+            <canvas id="confidenceChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Define the confidence scores and candidate labels
+        var confidenceScores = JSON.parse('{{ scores | tojson | safe }}');
+        var candidateLabels = JSON.parse('{{ sentiment_result.labels | tojson | safe }}');
+
+        // Get the scores from the sentiment result
+        var scores = Object.values(confidenceScores);
+
+        // Generate random colors for the bars
+        function randomColor() {
+            return '#' + Math.floor(Math.random()*16777215).toString(16);
+        }
+
+        var backgroundColors = [];
+        for (var i = 0; i < candidateLabels.length; i++) {
+            backgroundColors.push(randomColor());
+        }
+
+        // Create a new Chart instance
+        var ctx = document.getElementById('confidenceChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: candidateLabels,
+                datasets: [{
+                    label: 'Confidence Score',
+                    data: scores,
+                    backgroundColor: backgroundColors,
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
